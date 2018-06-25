@@ -1,0 +1,77 @@
+<view>
+  <image src="{{imgs}}" class='gimg'></image>
+  <view class='cont'>
+    <text class='g_name'>{{title}}</text>
+    <text class='g_price'>￥{{price}}</text>
+    <text class='fs mt'>
+          <text>品牌：</text>
+    <text class='t2'>{{brandName}}</text>
+    </text>
+    <text class='fs'>
+          <text>订货号：</text>
+    <text class='t3'>{{orderNum}}</text>
+    </text>
+    <text class='fs'>
+          <text>型号：</text>
+    <text class='t2'>{{model}}</text>
+    </text>
+    <text class='fs'>
+          <text>库存：</text>
+    <text class='t2'>{{stock}}{{measure}}</text>
+    </text>
+  </view>
+  <view class='cont cont2 '>
+    <text class='fs28'>商品详情</text>
+    <text class='fs'>
+        <text>系列：</text>
+    <text class='t2'>{{series}}</text>
+    </text>
+  </view>
+  <view class='bottom'>
+    <view class='cont cont-bottom'>
+      <view class='cont_v1' bindtap='service'>
+         <image src='../../../img/kf.png'></image>
+         <text>客服</text>
+      </view>
+      <view class='cont_v2' bindtap='cartPage'> 
+        <image src='../../../img/gwc.png'></image>
+        <text class='cont_v2_text1'>购物车</text>
+        <text class='cont_v2_text2'>{{cart_num}}</text>
+      </view>
+      <view class='cont_v3' bindtap='cart'>加入购物车</view>
+    </view>
+  </view>
+  <!-- 加入购物车 -->
+  <view class="modal-box" hidden="{{flag}}">
+    <view class="modal-body">
+      <view class="modal-content">
+        <view class='stock'>
+          <text class='num-t2'>库存：</text>
+          <text class='lm-st'>{{stock}}{{measure}}</text>
+          <image src='../../../img/out.png' class="out" bindtap='close'></image>
+        </view>
+        <view class='buyNum'>
+          <text class='num-t1'>购买数量：</text>
+          <text class='red {{minusStatus}}' bindtap="bindMinus">-</text>
+          <input type="number" class='nums' bindchange="bindManual" value="{{num}}"></input>
+          <text class='add' bindtap="bindPlus">+</text>
+        </view>
+        <text class="knowBtn" bindtap="to_cart">加入购物车</text>
+      </view>
+    </view>
+  </view>
+  <!-- 联系客服 -->
+  <view class="modal-box2" hidden="{{flag2}}">
+    <view class="modal-body2">
+      <view class="modal-content2">
+        <view class='callNum'>
+          <text class='service' bindtap="service">联系客服</text>
+        </view>
+        <view class='callNum'>
+          <text class='call'>拨打：0512-65099638</text>
+        </view>
+        <text class="close_service" bindtap="close_service">取消</text>
+      </view>
+    </view>
+  </view>
+</view>

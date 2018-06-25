@@ -1,0 +1,36 @@
+<!--pages/module/login.wxml-->
+
+<view class='container'>
+    <!-- <text>pages/module/login.wxml</text> -->
+    <!-- <view>
+      <input placeholder='手机号' class='inp1'></input>
+      <input placeholder='验证码' class='inp2'></input>
+      <input placeholder='短信验证码'   class='inp3'></input>
+      <button>获取短信验证码</button>
+      <input placeholder='密码'   class='inp3'></input>
+      <button>注册</button>
+    </view> -->
+    <view class='login-log' hidden="{{hiddenName}}">
+      <input placeholder='请输入手机号' class='inp1' maxlength='11'value="" bindinput ="mobileInput"></input>
+      <input type='password' placeholder='请输入密码'   class='inp2' bindinput ="psInput"></input>
+      <button bindtap='login' class='button'>登录</button>
+    </view>
+    <view class='login-forget' hidden="{{forgetName}}">
+      <input placeholder='请输入手机号'></input>
+      <input placeholder='请输入短信验证码'></input>
+      <input placeholder='创建密码'></input>
+      <input placeholder='确认密码'></input>
+    </view>  
+    <view class='choose'>
+      <navigator url="../../module/register/register" hover-class="navigator-hover" class="register" >
+        免费注册
+      </navigator>
+      <navigator url="../../module/forget/forget" hover-class="navigator-hover" class="forget-pass" >
+        忘记密码
+      </navigator>
+      <!-- <text class='' bindtap='register'>免费注册</text>
+      <text class='forget-pass' bindtap='forget-pass'>忘记密码</text> -->
+    </view>
+      
+
+</view>

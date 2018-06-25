@@ -1,0 +1,140 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- Search --> 
+  <view class="Search">
+    <input class="gdb_selectText iconfont icon-sousuo lm-inp"  bindtap="inpclick"></input>
+  </view>
+  <!-- Banner -->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="1000" 
+          indicator-color="#fff">    
+      <block wx:for="{{bannerimgs}}" wx:for-index="index">    
+        <swiper-item>    
+          <image src="{{item.image}}" class="slide-image" mode="aspectFill"/>    
+        </swiper-item>    
+      </block>    
+  </swiper>  
+  <!-- HotBrand -->  
+  <view class="brand">
+    
+    <ul>
+      <li bindtap="brandclick" wx:for="{{removeData}}"><image src='{{item.logo}}'></image></li> 
+    </ul>
+  </view>
+  <!-- Floor -->  
+  <view class="floor1 ">
+    <view class='floor_name'>
+      <text class='bar'></text>
+      <text class='fw600'>电气控制</text>
+    </view>
+    
+    <view class="content">  
+      <view style="" data-id="87956" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/451.jpg"></image>
+        <text class="gname">施耐德 按钮 XB2BW33B1C</text>
+        <text class='gprice'>¥26.58 / 台</text>
+      </view>  
+      <view style="" data-id="75422" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/DC24V.jpg"></image>
+        <text class="gname">霍尼韦尔继电器GR-2C-DC24V</text>
+        <text class='gprice'>¥10.33 / 个</text>
+      </view>  
+      <view style="" data-id="76422" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/S203.png"></image>
+        <text class="gname">ABB 微型断路器 S203-C20</text>
+        <text class='gprice'>¥87.90/ 个</text>
+      </view>  
+      <view style="" data-id="75527" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/7CC.png"></image>
+        <text class="gname">西门子 接触器 3RT50556AP36</text>
+        <text class='gprice'>¥672.10 / 个</text>
+      </view>  
+    </view>  
+  </view>
+  <view class="floor2 " >
+    <view class='floor_name'>
+      <text class='bar'></text>
+      <text class='fw600'>工业自动化</text>
+    </view>
+    <view class="content">  
+      <view style="" data-id="86690" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/CV.png"></image>
+        <text class="gname">施耐德 塑壳断路器 固定式 CVS100F 16A 3P</text>
+        <text class='gprice'>¥374.25 / 个</text>
+        
+      </view>  
+      <view style="" data-id="87718" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/OSM.png"></image>
+        <text class="gname">施耐德 小型断路器 OSMC32N1P C10A</text>
+        <text class='gprice'>¥18.97 / 个</text>
+      </view>  
+      <view style="" data-id="63104" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/NAL2.jpg"></image>
+        <text class="gname">施耐德 接近传感器 XS218BLNAL2C</text>
+        <text class='gprice'>¥77.81 / 个</text>
+      </view>  
+      <view style="" data-id="86918" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/GV.png"></image>
+        <text class="gname">施耐德 TeSys热磁式电动机断路器，按钮控制，整定电流1.6-2.5A；GV2ME07C</text>
+        <text class='gprice'>¥126.81 / 个</text>
+      </view>  
+    </view>  
+  </view>
+  <view class="floor3 ">
+    <view class='floor_name'>
+      <text class='bar'></text>
+      <text class='fw600'>胶粘胶带</text>
+    </view>
+    <view class="content">  
+      <view style="" data-id="75493" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/3M244.png"></image>
+        <text class="gname">3M244</text>
+        <text class='gprice'>¥583.00 / 套</text>
+        
+      </view>  
+      <view style="" data-id="75486" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/15.png"></image>
+        <text class="gname">3M610C-15蓝</text>
+        <text class='gprice'>¥3190.00 / 套</text>
+      </view>  
+      <view style="" data-id="75473" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/3M3922.png"></image>
+        <text class="gname">3M3922</text>
+        <text class='gprice'>¥14300.00 / 套</text>
+      </view>  
+      <view style="" data-id="75484" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/12.png"></image>
+        <text class="gname">3M610C-12红</text>
+        <text class='gprice'>¥3190.00 / 套</text>
+      </view>  
+    </view>  
+  </view>
+  <view class="floor4 ">
+    <view class='floor_name'>
+      <text class='bar'></text>
+      <text class='fw600'>气动元件</text>
+    </view>  
+    <view class="content">  
+      <view style="" data-id="74965" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/DFM-20.png"></image>
+        <text class="gname">费斯托 导向型气缸 DFM-20-80-P-A-GF</text>
+        <text class='gprice'>¥1142.64 / 个</text>
+        
+      </view>  
+      <view style="" data-id="75053" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/GRLA.png"></image>
+        <text class="gname">费斯托 单向节流阀 GRLA-1/8-QS-4-D</text>
+        <text class='gprice'>¥49.27 / 个</text>
+      </view>  
+      <view style="" data-id="75116" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/VABM.png"></image>
+        <text class="gname">费斯托 气路块 VABM-B10-25S-G38-4</text>
+        <text class='gprice'>¥220.20 / 个</text>
+      </view>  
+      <view style="" data-id="75094" bindtap='to_ginfo'>
+        <image src="http://gdbmro.com/image/index/PUN.png"></image>
+        <text class="gname">费斯托 塑料气管 PUN-H-6X1-BL</text>
+        <text class='gprice'>¥4.66 / 个</text>
+      </view>  
+    </view>  
+  </view>
+</view>

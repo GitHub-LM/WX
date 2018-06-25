@@ -1,0 +1,155 @@
+/**index.wxss**/
+
+.container {
+  width: 92.5%;
+  margin: auto;
+}
+.Search{
+  position: fixed;
+ 
+}
+.usermotto {
+  width: 100%;
+  margin-top: 50rpx;
+}
+/**Slideshow**/
+
+.swiper {
+  height: 260rpx;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 130rpx;
+}
+
+.swiper image {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+.brand, .floor1 {
+  margin-top: 30rpx;
+  width: 100%;
+  font-size: 30rpx;
+}
+
+.brand text {
+  font-size: 30rpx;
+}
+.bar{
+  width: 8rpx;
+  height: 34rpx;
+  background: #09b76b;
+  border-top-left-radius: 4rpx;
+  border-top-right-radius: 4rpx;
+  border-bottom-left-radius: 4rpx;
+  border-bottom-right-radius: 4rpx;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.fw600 {  
+  margin-left: 20rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.brand ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+  height: 148rpx;
+}
+
+.brand ul li {
+  display: inline-block;
+  width: 22.5%;
+  height: 60rpx;
+  text-align: center;
+  border: 1px solid #f0f0f2;
+  /* margin-bottom: 10px; */
+}
+
+.brand ul li image {
+  width:80%;
+height:80%;
+margin-top:5%;
+
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  /* margin-top: 30rpx; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content view {
+  width: 48.5%;
+  height: 426rpx;
+  position: relative;
+}
+
+.content view image {
+  width: 100%;
+  height: 285rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.gname {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: left;
+  font-size: 24rpx !important;
+  bottom: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 70rpx;
+  margin-top: 30rpx;
+  padding-left:20rpx;
+
+}
+
+.gprice {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: left;
+  font-size: 24rpx !important;
+  bottom: 0rpx;
+  color: red;
+  padding-left:20rpx;
+
+}
+.floor1,.floor2,.floor3{
+  margin-top: 40rpx
+}
+.content view image{
+  border: 1px solid #f0f0f2;
+}
+.content view{
+  margin-top: 30rpx;
+}
+.floor4{
+   margin-top: 40rpx
+}
+.floor_name{
+  height: 40rpx;
+  line-height: 40rpx;
+  position: relative;
+}

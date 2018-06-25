@@ -1,0 +1,47 @@
+/* pages/module/login.wxss */
+.inp1,.inp2{
+  border: 1px solid #e2e2e2; 
+  width: 95%;
+  margin: auto;
+  margin-top: 30rpx;
+  display: inline-block;
+  border-radius: 8rpx;
+  height: 60rpx;
+  font-size:24rpx;
+  text-align: left;
+  text-indent: 10rpx;
+}
+.button{
+  margin-top: 60rpx !important;
+  width: 90%;
+  margin: auto;
+  font-size:24rpx;
+  background: #09b76b;
+  border: none;
+  color: #fff;
+}
+.choose{
+   width: 90%;
+   /* height: 30rpx; */
+   background: red;
+   position: relative;
+   margin: auto;
+}
+.register{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  position: absolute;
+  left: 0
+}
+.forget-pass{
+  position: absolute;
+  right: 0;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.cur{
+  background: red;
+}
+.login-log{
+  text-align:center;
+}

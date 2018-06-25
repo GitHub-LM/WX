@@ -1,0 +1,21 @@
+
+<view class='container'>
+  <view class='f1'>
+      <text>手机号</text>
+      <input placeholder='请输入手机号' class=''></input>
+  </view> 
+  <view class='f2'>
+      <text>短信验证</text>
+      <input placeholder='请输入短信验证码' class=''></input>
+      <text class='t2'>获取短信验证码</text>
+  </view> 
+  <view class='f3'>
+      <text>新密码</text>
+      <input placeholder='创建密码' class=''></input>
+  </view>  
+  <view class='f4'>
+      <text>确认密码</text>
+      <input placeholder='确认密码' class=''></input>
+  </view>  
+  <button class='btn1'>提交</button>
+</view>

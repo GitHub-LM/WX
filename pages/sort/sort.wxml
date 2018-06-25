@@ -1,0 +1,39 @@
+<view class="container">
+  <!-- Search -->
+  <view class="Search">
+    <input class="gdb_selectText iconfont icon-sousuo lm-inp" bindtap="inpclick"></input>
+  </view>
+  <!-- meauLeft -->
+  <view class="" style='margin:auto;'>
+
+    <view class='meauleft'>
+      <!-- <view wx:for="{{meaudata}}">{{item.name}}</view> -->
+      <!-- <text>品牌</text> -->
+      <view bindtap="meaus" id ="50" class="{{_num==1?'cur':''}}" data-num="1">电气自动化</view>
+      <view bindtap="meaus" id ="40" class="{{_num==2?'cur':''}}" data-num="2">轴承气动机械</view>
+      <view bindtap="meaus" id ="60" class="{{_num==7?'cur':''}}" data-num="7">个人防护</view>
+      <view bindtap="meaus" id ="80" class="{{_num==8?'cur':''}}" data-num="8">物流保管包材</view>
+      <view bindtap="meaus" id =""   class="{{_num==3?'cur':''}}" data-num="3">胶粘胶带磨具</view>
+      <view bindtap="meaus" id =""   class="{{_num==4?'cur':''}}" data-num="4">办公住宅清洁</view>
+      <view bindtap="meaus" id =""   class="{{_num==5?'cur':''}}" data-num="5">工具及耗材</view>
+      <view bindtap="meaus" id =""   class="{{_num==6?'cur':''}}" data-num="6">测量 </view> 
+    </view>
+    <view class='meaurig'>
+      <view>
+        <text class="recommend lm-none" >推荐品牌</text>
+        <ul class="meaurig_ul">
+          <li wx:for="{{recommendData}}" class="meau1" >
+            <image src="{{item.logo}}"></image>
+          </li>
+          <li style="background:#ffffff">{{notnow}}</li> 
+        </ul>
+        <ul wx:for="{{twoList}}"  class="meau2_ul" >
+          <text class="meau2">{{item.name}}</text> 
+          <li wx:for="{{item.childrens}}" wx:for-item="childrens" class="meau3">
+             {{childrens.name}}
+          </li>
+        </ul>
+      </view>
+    </view>
+  </view>
+</view>

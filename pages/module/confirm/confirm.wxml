@@ -1,0 +1,9 @@
+<view class='container'>
+  <view class='address'>
+      <navigator url="../../module/address/address" class='add_text1'>收货信息
+        <text class='add_text2'>您还未添加收货地址</text>
+      </navigator>
+      
+      <text class='iconfont icon-youjiantou'></text>
+  </view>
+</view>

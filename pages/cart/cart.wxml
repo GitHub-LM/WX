@@ -1,0 +1,56 @@
+<view class="main">
+  <view wx:if="{{hasList}}">
+    <view class="cart-box">
+      <view class='title'>
+        <icon wx:if="{{selectAllStatus}}" type="success_circle" color="#09b76b" class="total-select" bindtap="selectAll" />
+        <icon wx:else type="circle" color="gray" class="total-select" bindtap="selectAll" />
+
+        <icon wx:if="{{deleteAllStatus}}" type="success_circle" color="red" class="total-select" bindtap="Alldelete" />
+        <icon wx:else type="circle" color="gray" class="total-select" bindtap="Alldelete" />
+
+        <text class='cop_name'>{{name}}</text>
+        <text wx:if="{{edit}}" class='edit' bindtap='edit'>编辑</text>
+        <text wx:else class='edit' bindtap='done'>完成</text>
+      </view>
+      <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+        <!--  正常状态选中 -->
+        <icon wx:if="{{item.selected}}" type="success" color="#09b76b" data-index="{{index}}"  data-id="{{item.id}}" class="cart-pro-select" bindtap="selectList" />
+        <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" />
+       <!--  删除状态选中 -->
+        <icon wx:if="{{cut&&item.selected}}" type="success" color="red" data-index="{{index}}"  data-id="{{item.id}}" class="cart-pro-select" bindtap="selectList" />
+        <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" /> 
+        <navigator url="../module/goodInfo/goodInfo?id={{item.sellerGoodsId}}">
+          <image class="cart-thumb" src="{{item.image}}"></image>
+        </navigator>
+        <text class="cart-pro-name">{{item.goodsName}}</text>
+        <text class="cart-pro-buynum">订货号:{{item.buyNo}}</text>
+        <text class="cart-pro-price">￥{{item.price}}</text>       
+        <view class="cart-count-box">
+          <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
+          <text class="cart-count-num">{{item.num}}</text>
+          <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+        </view>
+        <!-- 删除按钮 -->
+        <!-- <text wx:if="{{cut}}" class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>  -->
+      </view>
+    </view>
+    <!-- 结算状态 -->
+    <view class="cart-footer">
+      <icon wx:if="{{selectAllStatus}}" type="success_circle" color="#09b76b" class="total-select2" bindtap="selectAll" />
+      <icon wx:else type="circle" color="#f0f0f2" class="total-select" bindtap="selectAll" />
+      <text class='allText'>全选</text>
+      <text class="cart-toatl-price">  <text style='color:#000'>合计</text>  ￥{{totalPrice}}</text>
+      <text class='settlement' bindtap='toConfirm'>结算</text>
+    </view>
+    <!-- 删除状态 -->
+    <view  wx:if="{{cut}}" class="cart-footer">
+      <icon wx:if="{{deleteAllStatus}}" type="success_circle" color="red" class="total-select2" bindtap="Alldelete" />
+      <icon wx:else type="circle" color="#f0f0f2" class="total-select" bindtap="Alldelete" />
+      <text class='allText'>全选</text>
+      <text class='settlement' style='background:red' bindtap='deleteCarts'>删除</text>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="cart-no-data">购物车是空的哦~</view>
+  </view>
+</view>

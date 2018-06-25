@@ -1,0 +1,105 @@
+/* pages/module/register.wxss */
+
+.inp1 {
+  /* border: 1px solid gold;  */
+  width: 100%;
+  margin: auto;
+  margin-top: 30rpx;
+  display: inline-block;
+  border-radius: 8rpx;
+  height: 70rpx;
+}
+
+.btn1 {
+  margin-top: 60rpx !important;
+  width: 90%;
+  font-size: 24rpx;
+  border:none;
+}
+
+.f1, .f3, .f4 {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-top: 1px solid #f0eded;
+}
+
+.f1 text, .f3 text, .f4 text {
+  font-size: 24rpx;
+  width: 25%;
+  display: inline-block;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.f1 input, .f3 input, .f4 input {
+  width: 75%;
+  float: right;
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.f2 {
+  width: 100%;
+  height: 90rpx;
+  position: relative;
+  border-top: 1px solid #f0eded;
+  /* border: 1px solid gold;   */
+}
+
+.f2 text:first-child {
+  font-size: 28rpx;
+  width: 25%;
+  display: inline-block;
+  height: 90rpx;
+  line-height: 90rpx;
+  position: absolute;
+  left: 0;
+}
+
+.t2 {
+  font-size: 24rpx;
+  width: 30%;
+  display: inline-block;
+  height: 90rpx;
+  line-height: 90rpx;
+  position: absolute;
+  right: 0;
+}
+
+.f2 input {
+  font-size: 28rpx;
+  position: absolute;
+  left: 25%;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.f4 {
+  border-bottom: 1px solid #f0eded;
+}
+
+radio {
+  transform: scale(0.5);
+}
+
+.f5 {
+  text-align: center;
+  margin-top: 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.f5 .agree {
+  font-size: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.f5 .agreement {
+  font-size: 20rpx;
+  color: #74bc03;
+  height: 40rpx;
+  line-height: 40rpx;
+}

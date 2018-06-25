@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/module/confirm/confirm",
+    "pages/cart/cart",
+    
+    "pages/my/my",
+    "pages/module/register/register",
+    "pages/module/login/login",
+    "pages/sort/sort",
+    "pages/module/goodInfo/goodInfo",
+    "pages/module/forget/forget",
+    "pages/module/address/address"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "工电宝商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a2a2a2",
+    "selectedColor": "#09b76b",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/index.png",
+        "selectedIconPath": "img/index2.png"
+      },
+      {
+        "pagePath": "pages/sort/sort",
+        "text": "分类",
+        "iconPath": "img/sort.png",
+        "selectedIconPath": "img/sort2.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "img/cart.png",
+        "selectedIconPath": "img/cart2.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/my2.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}
