@@ -15,9 +15,8 @@
   </swiper>  
   <!-- HotBrand -->  
   <view class="brand">
-    
     <ul>
-      <li bindtap="brandclick" wx:for="{{removeData}}"><image src='{{item.logo}}'></image></li> 
+      <li bindtap="toBrandList" wx:for="{{removeData}}" data-id="{{item.id}}" ><image src='{{item.logo}}'></image></li> 
     </ul>
   </view>
   <!-- Floor -->  

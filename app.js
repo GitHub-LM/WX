@@ -36,7 +36,7 @@ App({
   },
   globalData: {
     adminUserViewId: "",
-    url:"http://gdbmro.com/gdbmro_serviceApi",
+    url:"https://gdbmro.com/gdbmro_serviceApi",
     urls:"http://localhost:8080/gdbmro_serviceApi http://gdbmro.com/gdbmro_serviceApi",
     token: "",
     header: {

@@ -1,6 +1,7 @@
 // pages/module/goodInfo/goodInfo.js
 const util = require('../../../utils/util.js')
 const http = require('../../../js/http.js')
+const pubFun = require('../../../js/public.js')
 const app = getApp()
 
 
@@ -29,40 +30,52 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var id = options.id
+    var id = JSON.parse(options.id);
     var that = this
+    var cookieId=wx.getStorageSync("cookieId");
+    var cache=Math.random(15);
+   // console.log(options, cookieId, id);
+
     wx.request({
-      url: app.globalData.url + '/goods/web_item/info/' + id + '?_cache=0.9623878423793915',
+      url: app.globalData.url + '/goods/web_item/info/' + id +"?_cache="+cache,
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-        "Cookie": "cookieId=" + wx.getStorageSync("cookieId")
+        "Cookie": "cookieId=" + cookieId
       },
       data: {
-        cookieId: wx.getStorageSync("cookieId")
+        cookieId: cookieId
       },
       success: function (res) {
-        var s = res.data.data
-        console.log(s)
-        that.setData({
-          imgs: s.image,
-          title: s.title,
-          price: s.price,
-          orderNum: s.orderNum,
-          model: s.model,
-          brandName: s.brandName,
-          stock: s.stock,
-          measure: s.measure,
-          series: s.series,
-          sellerGoodsId:s.saleGId
-        });
+        var s = res.data.data;
+        if(s != undefined){
+          that.setData({
+            imgs: s.image,
+            title: s.title,
+            price: s.price,
+            orderNum: s.orderNum,
+            model: s.model,
+            brandName: s.brandName,
+            stock: s.stock,
+            measure: s.measure,
+            series: s.series,
+            sellerGoodsId: s.saleGId
+          });
+        }
       }
     })
   },
   cart: function () {
-    this.setData({ flag: false })
+   var loginFlag= wx.getStorageSync("cookieId");
+    if (!loginFlag.length){
+      wx.navigateTo({
+        url: '../login/login'
+      })
+    }else{
+      this.setData({ flag: false })
+    }
   },
-  /* 点击减号 */
+  /* 数量减 */
   bindMinus: function () {
     var num = this.data.num;
     // 如果大于1时，才可以减  
@@ -77,14 +90,11 @@ Page({
       minusStatus: minusStatus
     });
   },
-  /* 点击加号 */
+  /* 数量加 */
   bindPlus: function () {
     var num = this.data.num;
-    // 不作过多考虑自增1  
     num++;
-    // 只有大于一件的时候，才能normal状态，否则disable状态  
     var minusStatus = num < 1 ? 'disabled' : 'normal';
-    // 将数值与状态写回  
     this.setData({
       num: num,
       minusStatus: minusStatus
@@ -93,7 +103,6 @@ Page({
   /* 输入框事件 */
   bindManual: function (e) {
     var num = e.detail.value;
-    // 将数值与状态写回  
     this.setData({
       num: num
     });
@@ -109,90 +118,57 @@ Page({
     this.setData({ flag: true })
   },
    /* 加入购物车 */
-  to_cart:function(){
+  to_cart: function (e) {
+    var that = this;
+    var id = this.data.sellerGoodsId;
     var num = this.data.num
-    var saleGId = this.data.sellerGoodsId
-    var that=this
-    console.log(num, saleGId)
-    wx.request({
-      url: app.globalData.url + '/cart/cart_add/',
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-        "Cookie": "cookieId=" + wx.getStorageSync("cookieId")
-      },
-      data: {
-        num: num,
-        uNum: "0",
-        activityType: "0",
-        sellerGoodsId: saleGId,
-        _cache: "0.24382888688142335"
-      },
-      success: function (res) {
-        var s = res.data
-        console.log(s)
-        wx.setStorageSync("cartNum", s.data)
-        that.setData({
-           flag: true,
-           cart_num: s.data
-           })
+    pubFun.addCart(id,num);
+   
+    // var cartNum = wx.getStorageSync('cartNum');
+    // console.log(cartNum)
+    // that.setData({
+    //       flag: true,
+    //        cart_num: cartNum
+    //     })
+
+    wx.getStorage({
+      key: 'cartNum',
+      success:function(res){
+        console.log(res)
+         that.setData({
+          flag: true,
+           cart_num: res.data
+        })
       }
     })
   },
+
   cartPage:function(){
     wx.switchTab({
       url: '../../cart/cart'
     })
   },
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var aa=wx.getStorageSync("cartNum")
-    this.setData({
-      cart_num:aa
+    var aa=wx.getStorageSync("cartNum");
+    wx.getStorage({
+      key: 'cartNum',
+      success: function (res) {
+        console.log(res.data)
+      }
     })
+
+    if(aa != ""){
+      this.setData({
+        cart_num: aa
+      })
+    }else{
+      this.setData({
+        cart_num: "空"
+      })
+    }
+   
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -1,0 +1,39 @@
+.searcr_inp {
+font-size:12px;
+border-radius:20rpx;
+background:#f0f0f2;
+width:70%;
+z-index:1;
+height:58rpx;
+margin-left:5%;
+padding-left:29rpx;
+
+}
+
+.searchBtn {
+  width: 104rpx;
+  height: 58rpx;
+  float: right;
+  font-size: 24rpx;
+  margin-right: 5%;
+  position: absolute;
+  top: 0rpx;
+  right: 0;
+}
+
+.resultArea {
+  width: 90%;
+  height: 658rpx;
+  margin: auto;
+  overflow-y: scroll;
+  margin-top: 20rpx;
+}
+.resultItems{
+  width:100%;
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom:2rpx solid gray;
+  font-size:24rpx;
+
+}

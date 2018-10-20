@@ -1,9 +1,22 @@
 <view class='container'>
   <view class='address'>
-      <navigator url="../../module/address/address" class='add_text1'>收货信息
-        <text class='add_text2'>您还未添加收货地址</text>
-      </navigator>
-      
+
+    <navigator url="../../module/address/address" class='add_text1' wx:if='{{getConsigner ==false}}'>
+      <image src='../../../img/dw.jpg'></image>
+      <text>收货信息</text>
+      <text class='add_text2'>您还未添加收货地址</text>
       <text class='iconfont icon-youjiantou'></text>
+    </navigator>
+
+    <navigator url="../../module/addressAdmin/addressAdmin" class='add_text1' wx:else='{{getConsigner ==true}}'>
+      <image src='../../../img/dw.jpg'></image>
+      <text class='iconfont icon-youjiantou'></text>
+      <text class='consigner' decode="{{true}}">收货人:&emsp;{{consignerInfo.consignee}}</text>
+      <text class='mobile' decode="{{true}}">{{consignerInfo.mobile}}&emsp;</text>
+      <text class='address2'>{{province}}{{city}}{{area}}{{consignerInfo.address}}</text>
+    </navigator>
+
+    <view>
+    </view>
   </view>
 </view>

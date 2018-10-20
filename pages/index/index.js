@@ -24,7 +24,7 @@ Page({
         that.setData({ removeData: datas });
       }
     })
-    //banner
+    //轮播图
     wx.request({
       url: app.globalData.url + '/adverBanner/home_index/index',
       method: "GET",
@@ -36,33 +36,27 @@ Page({
         that.setData({ bannerimgs: datas });
       }
     })
-    
-    /* //接口测试
-    var  http = require('../../js/http.js')
-    http.GET("http://gdbmro.com/gdbmro_serviceApi/adverBanner/home_index/index", function (res) {
-    }, function (e) {
-      console.log("wrong");
-    }); */
   },
   to_ginfo: function(e){ 
-    var p = JSON.stringify("../module/goodInfo/goodInfo?id=" + e.currentTarget.dataset.id) 
-    
-    console.log(p)
+    var p = JSON.stringify(e.currentTarget.dataset.id); 
+    //console.log(p)
     if (wx.getStorageSync("cookieId") == "") {
-      wx.navigateTo({ url: "../module/login/login?page=" + JSON.parse(p) })
+      wx.navigateTo({ url: '../module/login/login' })
     } else {
       wx.navigateTo({ url: '../module/goodInfo/goodInfo?id=' + p })
     }
   },
   inpclick:function(){
-    // var storage = require('../../js/storage.js');
-    // storage.put("loginInfo","yes");
+    wx.navigateTo({
+      url: '../module/search/search'
+    })
   },
-  brandclick:function(event){
-      // 跳转到tabBar页面（在app.json中注册过的tabBar页面），同时关闭其他非tabBar页面。
-      // wx.switchTab({
-      //   url: '../../pages/sort/sort'
-      // })
+  toBrandList:function(e){
+    var brandId = e.currentTarget.dataset.id;
+    console.log(brandId);
+    wx.navigateTo({
+      url: '../module/goodsList/goodsList?brandId=' + brandId
+    })
   },
   //事件处理函数
   bindViewTap: function() {

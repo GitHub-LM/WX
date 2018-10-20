@@ -1,32 +1,35 @@
 <view class='container'>
-  <view class='v1 obj'> 
+  <view class='v1 obj'>
     <text>收货人</text>
-    <input type='text' value='' placeholder='*必填'></input>
+    <input type='text' value='' placeholder='*必填' bindinput='consigner'></input>
   </view>
-  <view class='v1 tell'> 
+  <view class='v1 tell'>
     <text>手机号</text>
-    <input type='text' value='' placeholder='*必填'></input>
+    <input type='text' value='' placeholder='*必填' bindinput='mobile'></input>
   </view>
-  <view class='v1 area'> 
+  <view class='v1 area'>
     <text>选择地区</text>
     <text class='area_text'>{{areaInfo}}</text>
     <text class='iconfont icon-diliweizhishezhi' bindtap="selectDistrict"> </text>
   </view>
-  <view class='v1 detailAddress'> 
+  <view class='v1 detailAddress'>
     <text>详细地址</text>
-    <input type='text' value='' placeholder='例如：xx街道xx号xx栋xx室'></input>
+    <input type='text' value='' placeholder='*必填   例如：xx街道xx号xx栋xx室' bindinput='address'></input>
   </view>
-  <view class='v1 post'> 
+  <view class='v1 post'>
     <text>邮政编码</text>
-    <input type='text' value='' placeholder='*必填'></input>
+    <input type='text' value='' placeholder='*必填' bindinput='postCode'></input>
   </view>
-  <view class='v1'> 
+  <view class='v1'>
     <text>是否默认</text>
   </view>
-  <view class='v2'>
+  <view class="body-view default">
+    <switch checked bindchange="switchChange" />
+  </view>
+  <view class='v2' bindtap='savaAddress'>
     <text>确定</text>
   </view>
-</view>  
+</view>
 
 
 

@@ -1,0 +1,21 @@
+<view class="list">
+  <input class="iconfont icon-sousuo searcr_inp" bindtap='inpclick'></input>
+
+  <view class='listTab'>
+    <text>默认</text>
+    <text>价格</text>
+    <text>筛选</text>
+  </view>
+
+  <!-- <text style='border-bottom:2rpx solid gray;width:100%'></text> -->
+
+  <view class='searchList'>
+    <view wx:for="{{searchList}}" wx:for-item="searchList" class='list_item' data-id="{{searchList.id}}" bindtap='toDetail'>
+      <image src='{{searchList.image}}'></image>
+      <text>{{searchList.goodsName}}</text>
+      <text>订货号：{{searchList.orderNum}}</text>
+      <text>¥ {{searchList.salePrice}}</text>
+      <image src='../../../img/list_car.jpg' class='tocart' data-id='{{searchList.id}}'   catchtap='tocart'></image>
+    </view>
+  </view>
+</view>

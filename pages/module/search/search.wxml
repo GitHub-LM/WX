@@ -1,0 +1,7 @@
+<view class="">
+  <input class="iconfont icon-sousuo searcr_inp" bindinput='searchGoods' bindconfirm='search' focus='ture'></input>
+  <button class='searchBtn' bindtap='search'>搜索</button>
+  <view  class='resultArea'>
+    <text wx:for="{{items}}" wx:for-item="items" data-text="{{items.name}}" class='resultItems'  bindtap='goodsList'>{{items.name}}</text>
+  </view>
+</view>

@@ -20,7 +20,7 @@
   content: "\e6fa";
   color: #8e8e93;
   font-size: 18px;
-  padding-left: 20rpx;
+  padding-left: 0rpx;
   top: 14rpx;
   position: relative;
   height: 70rpx;

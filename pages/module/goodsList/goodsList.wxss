@@ -1,0 +1,81 @@
+.searcr_inp {
+  font-size: 12px;
+  border-radius: 20rpx;
+  background: #f0f0f2;
+  width: 92%;
+  z-index: 1;
+  height: 58rpx;
+  margin: auto;
+  padding-left: 29rpx;
+}
+
+.listTab {
+  font-size: 28rpx;
+  justify-content: space-around;
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.listTab text:nth-child(1) {
+  color: red;
+}
+
+.searchList text {
+  width: 100%;
+}
+
+.list_item {
+  height: 200rpx;
+  position: relative;
+  border-bottom: 1rpx solid #f0eded;
+  width: 100%;
+  margin: auto;
+  line-height: 100rpx;
+}
+
+.list_item image:nth-of-type(1) {
+  width: 146rpx;
+  height: 146rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 28rpx;
+}
+
+.tocart {
+  width: 63rpx;
+  height: 63rpx;
+  position: absolute;
+  top: 126rpx;
+  margin: auto;
+  right: 28rpx;
+  z-index: 2;
+}
+
+.list_item text:nth-child(2) {
+  font-size: 24rpx;
+  position: absolute;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 70%;
+  left: 25%;
+  display: inline-block;
+}
+
+.list_item text:nth-child(3) {
+  position: absolute;
+  font-size: 24rpx;
+  top: 52rpx;
+  left: 25%;
+}
+
+.list_item text:nth-child(4) {
+  font-size: 24rpx;
+  position: absolute;
+  color: red;
+  top: 104rpx;
+  left: 25%;
+}

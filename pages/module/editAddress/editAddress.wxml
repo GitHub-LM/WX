@@ -1,0 +1,73 @@
+<view class='container'>
+  <view class='v1 obj'>
+    <text>收货人</text>
+    <input type='text' value='{{addressInfo.consigner}}' placeholder='*必填' bindinput='consigner'></input>
+  </view>
+  <view class='v1 tell'>
+    <text>手机号</text>
+    <input type='text' value='{{addressInfo.mobile}}' placeholder='*必填' bindinput='mobile'></input>
+  </view>
+  <view class='v1 area'>
+    <text>选择地区</text>
+    <text class='area_text'>{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.area}}</text>
+    <text class='iconfont icon-diliweizhishezhi' bindtap="selectDistrict"> </text>
+  </view>
+  <view class='v1 detailAddress'>
+    <text>详细地址</text>
+    <input type='text' value='{{addressInfo.address}}' placeholder='*必填   例如：xx街道xx号xx栋xx室' bindinput='address'></input>
+  </view>
+  <view class='v1 post'>
+    <text>邮政编码</text>
+    <input type='text' value='{{addressInfo.postCode}}' placeholder='*必填' bindinput='postCode'></input>
+  </view>
+  <view class='v1'>
+    <text>是否默认</text>
+  </view>
+  <view class="body-view default" wx:if='{{addressInfo.isDefault==1}}'>
+    <switch checked bindchange="switchChange" />
+  </view>
+  <view class="body-view default" wx:if='{{addressInfo.isDefault==0}}'>
+    <switch  bindchange="switchChange" />
+  </view>
+  <view class='v2' bindtap='savaAddress'>
+    <text>确定</text>
+  </view>
+</view>
+
+
+
+<!-- 三级联动 -->
+<!--directory.wxml-->
+<view class="container">
+  <view style="position:fixed ;top:40%;box-sizing:border-box;padding:20rpx;text-align:center;width:100%">
+    <!-- <view style="padding-bottom:20rpx">{{areaInfo}}</view>
+    <button bindtap="selectDistrict">选择城市</button> -->
+  </view>
+</view>
+<view class="dialog-mask " style="visibility:{{isVisible ? 'visible': 'hidden'}}" bindtap="hideMenuTap " />
+
+
+<view class="dialog-mask " style="z-index:11;visibility:{{addressMenuIsShow ? 'visible': 'hidden'}}" bindtap="hideCitySelected" />
+<!--城市三级联动-->
+<!--使用动画时不能wx:if="{{city.length>0&&isVisible}}" ，不能hidden=''属性否则无动画效果-->
+<view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+  <view style="height:10% ;width:95%;margin-top:10rpx">
+    <text catchtap="cityCancel">取消</text>
+    <text style="float: right" catchtap="citySure">确定</text>
+  </view>
+  <!--"可以显示默认的城市，使用后级联选择城市反应很慢就不使用了-->
+  <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{value}}" wx:key="">
+    <picker-view-column>
+      <view wx:for="{{provinces}}" class="picker-item">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{areas}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

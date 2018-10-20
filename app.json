@@ -1,9 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/module/addressAdmin/addressAdmin",
     "pages/module/confirm/confirm",
+    "pages/module/editAddress/editAddress",
     "pages/cart/cart",
-    
+    "pages/index/index",
+    "pages/module/search/search",
+    "pages/module/goodsList/goodsList",
     "pages/my/my",
     "pages/module/register/register",
     "pages/module/login/login",

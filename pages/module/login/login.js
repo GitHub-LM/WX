@@ -69,31 +69,41 @@ Page({
       wx.request({
         url: app.globalData.url +"/user/user_login",
         data: {
-          loginName: mobile,
-          password: password,
-          _cache: _cache
+          "loginName":"18574161943",
+          "password":"abc12345"
         },
         method: 'POST',
         header: {
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+          'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
-          console.log(res.data.data.userName)  
-          that.setData({
-            userName: res.data.data.userName
-          })    
+          // that.setData({
+          //   userName: res.data.data.userName
+          // })    
           var s = res.data
           if(s.code==0){
             if (s.data.dealerType == 1) {             
             } else {
               wx.setStorageSync('cookieId', s.data.cookieId);
               app.globalData.header.cookieId = s.data.cookieId
-              //console.log(app.globalData.header.cookieId)
               storage.put("cookieId", s.data.cookieId);
               storage.put("cartNum", s.data.cartNum);
-              wx.switchTab({
-                url: '../../my/my'
-              })
+              console.log(that.data.prePage);
+              var cc = that.data.prePage.split("/")[2];
+              if (cc == "my" || cc == "sort" || cc == "cart" || cc == "index"){
+                wx.switchTab({
+                  url: "../../../" + that.data.prePage
+                })
+              }else{
+                // wx.navigateTo({
+                //   url: "../../../" + that.data.prePage
+                // })
+
+                wx.navigateBack({
+                  delta: 1
+                })
+
+              }
             }
           }else{
             wx.showToast({
@@ -117,10 +127,15 @@ Page({
     })
   },
   onLoad: function (options) {
-    console.log(options.page);
+    /* 记录上一个页面来源*/
+    let pages = getCurrentPages();
+    let prevpage = pages[pages.length - 2];
+    console.log( prevpage.route.split("/")[2])
+
     this.setData({
-      prePage: options.page
+      prePage: prevpage.route
     })
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

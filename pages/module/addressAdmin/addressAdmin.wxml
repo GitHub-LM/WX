@@ -1,0 +1,11 @@
+<view class='addressAdmin'>
+  <view wx:for='{{addressList}}' wx:for-item="addressList" class='addressList'>
+    <text class='consignee'>{{addressList.consigner}}</text>
+    <text class='mobile'>{{addressList.mobile}}</text>
+    <image src='../../../img/default.jpg' wx:if="{{addressList.isDefault ==1}}"   class='default'></image>
+    <text class='address'>{{addressList.province}}{{addressList.city}}{{addressList.area}}{{addressList.address}}</text>
+    <image src='../../../img/edit.png' class='edit' bindtap='toEdit' data-info='{{addressList}}'></image>
+  </view>
+  <button class='add' bindtap='toAddress'>新建收货地址</button>
+
+</view>
